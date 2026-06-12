@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tile Garden Planner</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.165.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.165.0/examples/jsm/"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="scene-panel" aria-label="Interactive 3D garden planner">
+        <canvas id="garden-canvas" tabindex="0"></canvas>
+        <div class="scene-hud">
+          <strong id="hover-readout">Hover a tile</strong>
+          <span>Drag to orbit. WASD/arrows to move. Right/shift-drag to pan. Scroll to zoom.</span>
+        </div>
+      </section>
+
+      <button
+        id="panel-toggle"
+        class="drawer-toggle"
+        type="button"
+        aria-controls="control-panel"
+        aria-expanded="true"
+      >
+        Hide
+      </button>
+
+      <aside id="control-panel" class="control-panel" aria-label="Garden controls">
+        <div class="brand-block">
+          <p class="eyebrow">3D Planner</p>
+          <h1>Tile Garden</h1>
+        </div>
+
+        <form id="dimension-form" class="dimension-form">
+          <label>
+            <span class="slider-label">
+              Width
+              <strong id="width-value">5</strong>
+            </span>
+            <input id="garden-width" name="width" type="range" min="1" step="1" />
+          </label>
+          <label>
+            <span class="slider-label">
+              Length
+              <strong id="length-value">5</strong>
+            </span>
+            <input id="garden-length" name="length" type="range" min="1" step="1" />
+          </label>
+          <p id="size-help" class="form-help"></p>
+        </form>
+
+        <section class="tool-section" aria-labelledby="tool-heading">
+          <div class="section-head">
+            <h2 id="tool-heading">Place</h2>
+            <span id="active-tool-label">Soil</span>
+          </div>
+          <div id="tool-grid" class="tool-grid" role="radiogroup" aria-label="Tile type"></div>
+        </section>
+
+        <section class="action-row" aria-label="Garden actions">
+          <button id="undo-button" class="secondary-action" type="button">Undo</button>
+          <button id="reset-button" class="danger-action" type="button">Reset</button>
+        </section>
+
+        <section class="status-card" aria-live="polite">
+          <h2>Garden State</h2>
+          <dl>
+            <div>
+              <dt>Size</dt>
+              <dd id="size-readout">5 x 5</dd>
+            </div>
+            <div>
+              <dt>Selected</dt>
+              <dd id="selected-readout">None</dd>
+            </div>
+            <div>
+              <dt>Saved</dt>
+              <dd id="save-readout">Local</dd>
+            </div>
+          </dl>
+        </section>
+      </aside>
+    </main>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
