@@ -71,3 +71,12 @@ python3 -m http.server 8001
 ## Notes
 
 The app runs entirely in the browser. It does not require a backend or account system, and saved garden state stays in the user's local browser storage.
+
+## Demo
+
+<img width="1438" height="713" alt="image" src="https://github.com/user-attachments/assets/9548a7e6-8f8c-44fa-9a15-4ca6b628efc8" />
+
+https://github.com/user-attachments/assets/b1fa970e-d741-432f-aef9-76b9a37caa48
+
+
+
